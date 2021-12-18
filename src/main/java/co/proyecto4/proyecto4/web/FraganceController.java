@@ -25,29 +25,31 @@ import co.proyecto4.proyecto4.service.FraganceService;
 public class FraganceController {
     @Autowired
     private FraganceService fraganceService;
-       
+     
+    @CrossOrigin
      @GetMapping("/all")
     public List<Fragance> getAll() {
         return fraganceService.getAll();
     }
     
+    @CrossOrigin
     @GetMapping("/{reference}")
     public Optional<Fragance> getFragance(@PathVariable("reference") String reference) {
         return fraganceService.getFragance(reference);
     }
-
+    @CrossOrigin
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     public Fragance create(@RequestBody Fragance fragance) {
         return fraganceService.create(fragance);
     }
-    
+    @CrossOrigin
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Fragance update(@RequestBody Fragance fragance) {
         return fraganceService.update(fragance);
     }
-
+    @CrossOrigin
     @DeleteMapping("/{reference}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("reference") String reference) {

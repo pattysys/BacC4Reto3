@@ -39,6 +39,7 @@ public class UserController {
      *
      * Hacer llamados get
      */
+    @CrossOrigin
     @GetMapping("/all")
     public List<User> getAll() {
         return userService.getAll();
@@ -48,7 +49,8 @@ public class UserController {
      *
      * peticion new
      */
-    @GetMapping("/{id}")
+    @CrossOrigin
+     @GetMapping("/{id}")
     public Optional <User> getUser(@PathVariable("id") int id) {
             return userService.getUser(id);
     }
@@ -57,6 +59,7 @@ public class UserController {
      *
      * peticion new
      */
+    @CrossOrigin
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
     public User create(@RequestBody User user) {
@@ -67,6 +70,7 @@ public class UserController {
      *
      * clase update
      */
+    @CrossOrigin
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public User update(@RequestBody User user) {
@@ -77,6 +81,7 @@ public class UserController {
      *
      * clase traer especifico
      */
+    @CrossOrigin
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int id) {
@@ -87,6 +92,7 @@ public class UserController {
      *
      * clase autenticar usuario
      */
+    @CrossOrigin
     @GetMapping("/{email}/{password}")
     public User authenticateUser(@PathVariable("email") String email, @PathVariable("password") String password) {
         return userService.authenticateUser(email, password);
@@ -96,6 +102,7 @@ public class UserController {
      *
      * clase verificar email
      */
+    @CrossOrigin
       @GetMapping("/emailexist/{email}")
     public boolean existeEmail(@PathVariable("email") String email) {
         return userService.emailExists(email);
